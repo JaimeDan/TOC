@@ -1,0 +1,472 @@
+Release 14.1 - xst P.15xf (nt)
+Copyright (c) 1995-2012 Xilinx, Inc.  All rights reserved.
+--> Parameter TMPDIR set to xst/projnav.tmp
+
+
+Total REAL time to Xst completion: 1.00 secs
+Total CPU time to Xst completion: 0.15 secs
+ 
+--> Parameter xsthdpdir set to xst
+
+
+Total REAL time to Xst completion: 1.00 secs
+Total CPU time to Xst completion: 0.15 secs
+ 
+--> Reading design: practica5.prj
+
+TABLE OF CONTENTS
+  1) Synthesis Options Summary
+  2) HDL Compilation
+  3) Design Hierarchy Analysis
+  4) HDL Analysis
+  5) HDL Synthesis
+     5.1) HDL Synthesis Report
+  6) Advanced HDL Synthesis
+     6.1) Advanced HDL Synthesis Report
+  7) Low Level Synthesis
+  8) Partition Report
+  9) Final Report
+	9.1) Device utilization summary
+	9.2) Partition Resource Summary
+	9.3) TIMING REPORT
+
+
+=========================================================================
+*                      Synthesis Options Summary                        *
+=========================================================================
+---- Source Parameters
+Input File Name                    : "practica5.prj"
+Input Format                       : mixed
+Ignore Synthesis Constraint File   : NO
+
+---- Target Parameters
+Output File Name                   : "practica5"
+Output Format                      : NGC
+Target Device                      : xc3s1000l-4-ft256
+
+---- Source Options
+Top Module Name                    : practica5
+Automatic FSM Extraction           : YES
+FSM Encoding Algorithm             : Auto
+Safe Implementation                : No
+FSM Style                          : LUT
+RAM Extraction                     : Yes
+RAM Style                          : Auto
+ROM Extraction                     : Yes
+Mux Style                          : Auto
+Decoder Extraction                 : YES
+Priority Encoder Extraction        : Yes
+Shift Register Extraction          : YES
+Logical Shifter Extraction         : YES
+XOR Collapsing                     : YES
+ROM Style                          : Auto
+Mux Extraction                     : Yes
+Resource Sharing                   : YES
+Asynchronous To Synchronous        : NO
+Multiplier Style                   : Auto
+Automatic Register Balancing       : No
+
+---- Target Options
+Add IO Buffers                     : YES
+Global Maximum Fanout              : 100000
+Add Generic Clock Buffer(BUFG)     : 8
+Register Duplication               : YES
+Slice Packing                      : YES
+Optimize Instantiated Primitives   : NO
+Use Clock Enable                   : Yes
+Use Synchronous Set                : Yes
+Use Synchronous Reset              : Yes
+Pack IO Registers into IOBs        : Auto
+Equivalent register Removal        : YES
+
+---- General Options
+Optimization Goal                  : Speed
+Optimization Effort                : 1
+Keep Hierarchy                     : No
+Netlist Hierarchy                  : As_Optimized
+RTL Output                         : Yes
+Global Optimization                : AllClockNets
+Read Cores                         : YES
+Write Timing Constraints           : NO
+Cross Clock Analysis               : NO
+Hierarchy Separator                : /
+Bus Delimiter                      : <>
+Case Specifier                     : Maintain
+Slice Utilization Ratio            : 100
+BRAM Utilization Ratio             : 100
+Verilog 2001                       : YES
+Auto BRAM Packing                  : NO
+Slice Utilization Ratio Delta      : 5
+
+=========================================================================
+
+
+=========================================================================
+*                          HDL Compilation                              *
+=========================================================================
+Compiling vhdl file "C:/Users/JaimeDan/Documents/MatInf/TERCERO/TOC/Practica5/mem_2.vhd" in Library work.
+Architecture circuito of Entity rams_2p is up to date.
+Compiling vhdl file "C:/Users/JaimeDan/Documents/MatInf/TERCERO/TOC/Practica5/practica5b.vhd" in Library work.
+Entity <practica5> compiled.
+Entity <practica5> (Architecture <behavioral>) compiled.
+
+=========================================================================
+*                     Design Hierarchy Analysis                         *
+=========================================================================
+Analyzing hierarchy for entity <practica5> in library <work> (architecture <behavioral>) with generics.
+	n = 32
+
+Analyzing hierarchy for entity <rams_2p> in library <work> (architecture <circuito>).
+
+
+=========================================================================
+*                            HDL Analysis                               *
+=========================================================================
+Analyzing generic Entity <practica5> in library <work> (Architecture <behavioral>).
+	n = 32
+Entity <practica5> analyzed. Unit <practica5> generated.
+
+Analyzing Entity <rams_2p> in library <work> (Architecture <circuito>).
+Entity <rams_2p> analyzed. Unit <rams_2p> generated.
+
+
+=========================================================================
+*                           HDL Synthesis                               *
+=========================================================================
+
+Performing bidirectional port resolution...
+
+Synthesizing Unit <rams_2p>.
+    Related source file is "C:/Users/JaimeDan/Documents/MatInf/TERCERO/TOC/Practica5/mem_2.vhd".
+    Found 32x4-bit dual-port RAM <Mram_RAM> for signal <RAM>.
+    Found 4-bit register for signal <do1>.
+    Found 4-bit register for signal <do2>.
+    Summary:
+	inferred   1 RAM(s).
+	inferred   8 D-type flip-flop(s).
+Unit <rams_2p> synthesized.
+
+
+Synthesizing Unit <practica5>.
+    Related source file is "C:/Users/JaimeDan/Documents/MatInf/TERCERO/TOC/Practica5/practica5b.vhd".
+    Found finite state machine <FSM_0> for signal <estado_act>.
+    -----------------------------------------------------------------------
+    | States             | 12                                             |
+    | Transitions        | 16                                             |
+    | Inputs             | 4                                              |
+    | Outputs            | 14                                             |
+    | Clock              | clk                       (rising_edge)        |
+    | Reset              | rst                       (positive)           |
+    | Reset type         | asynchronous                                   |
+    | Reset State        | inicial                                        |
+    | Power Up State     | inicial                                        |
+    | Encoding           | automatic                                      |
+    | Implementation     | LUT                                            |
+    -----------------------------------------------------------------------
+    Found 4-bit register for signal <dato1>.
+    Found 4-bit register for signal <dato2>.
+    Found 4-bit register for signal <di>.
+    Found 5-bit adder for signal <dirj2>.
+    Found 5-bit comparator lessequal for signal <estado_act$cmp_le0000> created at line 170.
+    Found 4-bit comparator lessequal for signal <estado_act$cmp_le0001> created at line 177.
+    Found 5-bit up counter for signal <i>.
+    Found 5-bit up counter for signal <j>.
+    Summary:
+	inferred   1 Finite State Machine(s).
+	inferred   2 Counter(s).
+	inferred  12 D-type flip-flop(s).
+	inferred   1 Adder/Subtractor(s).
+	inferred   2 Comparator(s).
+Unit <practica5> synthesized.
+
+
+=========================================================================
+HDL Synthesis Report
+
+Macro Statistics
+# RAMs                                                 : 1
+ 32x4-bit dual-port RAM                                : 1
+# Adders/Subtractors                                   : 1
+ 5-bit adder                                           : 1
+# Counters                                             : 2
+ 5-bit up counter                                      : 2
+# Registers                                            : 5
+ 4-bit register                                        : 5
+# Comparators                                          : 2
+ 4-bit comparator lessequal                            : 1
+ 5-bit comparator lessequal                            : 1
+
+=========================================================================
+
+=========================================================================
+*                       Advanced HDL Synthesis                          *
+=========================================================================
+
+Analyzing FSM <FSM_0> for best encoding.
+Optimizing FSM <estado_act/FSM> on signal <estado_act[1:12]> with one-hot encoding.
+-----------------------------
+ State       | Encoding
+-----------------------------
+ inicial     | 000000000001
+ inij        | 000000000010
+ comp2       | 000000001000
+ cond        | 000000010000
+ intercambio | 000001000000
+ aumj        | 000010000000
+ aumi        | 000000100000
+ final       | 100000000000
+ ultimo      | 010000000000
+ escribej    | 000100000000
+ espera      | 000000000100
+ esperai     | 001000000000
+-----------------------------
+
+Synthesizing (advanced) Unit <rams_2p>.
+INFO:Xst:3231 - The small RAM <Mram_RAM> will be implemented on LUTs in order to maximize performance and save block RAM resources. If you want to force its implementation on block, use option/constraint ram_style.
+    -----------------------------------------------------------------------
+    | ram_type           | Distributed                         |          |
+    -----------------------------------------------------------------------
+    | Port A                                                              |
+    |     aspect ratio   | 32-word x 4-bit                     |          |
+    |     clkA           | connected to signal <clk>           | rise     |
+    |     weA            | connected to signal <we>            | high     |
+    |     addrA          | connected to signal <addr1>         |          |
+    |     diA            | connected to signal <di>            |          |
+    |     doA            | connected to internal node          |          |
+    -----------------------------------------------------------------------
+    | Port B                                                              |
+    |     aspect ratio   | 32-word x 4-bit                     |          |
+    |     addrB          | connected to signal <addr2>         |          |
+    |     doB            | connected to internal node          |          |
+    -----------------------------------------------------------------------
+Unit <rams_2p> synthesized (advanced).
+
+=========================================================================
+Advanced HDL Synthesis Report
+
+Macro Statistics
+# FSMs                                                 : 1
+# RAMs                                                 : 1
+ 32x4-bit dual-port distributed RAM                    : 1
+# Adders/Subtractors                                   : 1
+ 5-bit adder                                           : 1
+# Counters                                             : 2
+ 5-bit up counter                                      : 2
+# Registers                                            : 20
+ Flip-Flops                                            : 20
+# Comparators                                          : 2
+ 4-bit comparator lessequal                            : 1
+ 5-bit comparator lessequal                            : 1
+
+=========================================================================
+
+=========================================================================
+*                         Low Level Synthesis                           *
+=========================================================================
+
+Optimizing unit <practica5> ...
+
+Optimizing unit <rams_2p> ...
+
+Mapping all equations...
+Building and optimizing final netlist ...
+Found area constraint ratio of 100 (+ 5) on block practica5, actual ratio is 0.
+
+Final Macro Processing ...
+
+=========================================================================
+Final Register Report
+
+Macro Statistics
+# Registers                                            : 42
+ Flip-Flops                                            : 42
+
+=========================================================================
+
+=========================================================================
+*                           Partition Report                            *
+=========================================================================
+
+Partition Implementation Status
+-------------------------------
+
+  No Partitions were found in this design.
+
+-------------------------------
+
+=========================================================================
+*                            Final Report                               *
+=========================================================================
+Final Results
+RTL Top Level Output File Name     : practica5.ngr
+Top Level Output File Name         : practica5
+Output Format                      : NGC
+Optimization Goal                  : Speed
+Keep Hierarchy                     : No
+
+Design Statistics
+# IOs                              : 13
+
+Cell Usage :
+# BELS                             : 63
+#      INV                         : 2
+#      LUT2                        : 11
+#      LUT2_L                      : 1
+#      LUT3                        : 21
+#      LUT4                        : 21
+#      LUT4_D                      : 3
+#      LUT4_L                      : 4
+# FlipFlops/Latches                : 42
+#      FD                          : 8
+#      FDC                         : 15
+#      FDCE                        : 18
+#      FDP                         : 1
+# RAMS                             : 8
+#      RAM16X1D                    : 8
+# Clock Buffers                    : 1
+#      BUFGP                       : 1
+# IO Buffers                       : 12
+#      IBUF                        : 7
+#      OBUF                        : 5
+=========================================================================
+
+Device utilization summary:
+---------------------------
+
+Selected Device : 3s1000lft256-4 
+
+ Number of Slices:                       36  out of   7680     0%  
+ Number of Slice Flip Flops:             42  out of  15360     0%  
+ Number of 4 input LUTs:                 79  out of  15360     0%  
+    Number used as logic:                63
+    Number used as RAMs:                 16
+ Number of IOs:                          13
+ Number of bonded IOBs:                  13  out of    173     7%  
+ Number of GCLKs:                         1  out of      8    12%  
+
+---------------------------
+Partition Resource Summary:
+---------------------------
+
+  No Partitions were found in this design.
+
+---------------------------
+
+
+=========================================================================
+TIMING REPORT
+
+NOTE: THESE TIMING NUMBERS ARE ONLY A SYNTHESIS ESTIMATE.
+      FOR ACCURATE TIMING INFORMATION PLEASE REFER TO THE TRACE REPORT
+      GENERATED AFTER PLACE-and-ROUTE.
+
+Clock Information:
+------------------
+-----------------------------------+------------------------+-------+
+Clock Signal                       | Clock buffer(FF name)  | Load  |
+-----------------------------------+------------------------+-------+
+clk                                | BUFGP                  | 50    |
+-----------------------------------+------------------------+-------+
+
+Asynchronous Control Signals Information:
+----------------------------------------
+-----------------------------------+------------------------+-------+
+Control Signal                     | Buffer(FF name)        | Load  |
+-----------------------------------+------------------------+-------+
+rst                                | IBUF                   | 24    |
+i_or0000(i_or00001:O)              | NONE(i_0)              | 5     |
+j_or0000(j_or00001:O)              | NONE(j_0)              | 5     |
+-----------------------------------+------------------------+-------+
+
+Timing Summary:
+---------------
+Speed Grade: -4
+
+   Minimum period: 7.104ns (Maximum Frequency: 140.766MHz)
+   Minimum input arrival time before clock: 7.131ns
+   Maximum output required time after clock: 9.243ns
+   Maximum combinational path delay: No path found
+
+Timing Detail:
+--------------
+All values displayed in nanoseconds (ns)
+
+=========================================================================
+Timing constraint: Default period analysis for Clock 'clk'
+  Clock period: 7.104ns (frequency: 140.766MHz)
+  Total number of paths / destination ports: 629 / 140
+-------------------------------------------------------------------------
+Delay:               7.104ns (Levels of Logic = 3)
+  Source:            estado_act_FSM_FFd1 (FF)
+  Destination:       conecta/do1_3 (FF)
+  Source Clock:      clk rising
+  Destination Clock: clk rising
+
+  Data Path: estado_act_FSM_FFd1 to conecta/do1_3
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     FDC:C->Q             15   0.720   1.214  estado_act_FSM_FFd1 (estado_act_FSM_FFd1)
+     LUT4:I3->O           24   0.551   1.797  dirj<3>1 (dirj<3>)
+     RAM16X1D:A3->SPO      1   1.072   0.996  conecta/Mram_RAM1 (conecta/N4)
+     LUT3:I1->O            1   0.551   0.000  conecta/inst_LPM_MUX11 (conecta/_varindex0000<0>)
+     FD:D                      0.203          conecta/do1_0
+    ----------------------------------------
+    Total                      7.104ns (3.097ns logic, 4.007ns route)
+                                       (43.6% logic, 56.4% route)
+
+=========================================================================
+Timing constraint: Default OFFSET IN BEFORE for Clock 'clk'
+  Total number of paths / destination ports: 78 / 46
+-------------------------------------------------------------------------
+Offset:              7.131ns (Levels of Logic = 4)
+  Source:            direccion<3> (PAD)
+  Destination:       conecta/do1_3 (FF)
+  Destination Clock: clk rising
+
+  Data Path: direccion<3> to conecta/do1_3
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     IBUF:I->O             1   0.821   1.140  direccion_3_IBUF (direccion_3_IBUF)
+     LUT4:I0->O           24   0.551   1.797  dirj<3>1 (dirj<3>)
+     RAM16X1D:A3->SPO      1   1.072   0.996  conecta/Mram_RAM1 (conecta/N4)
+     LUT3:I1->O            1   0.551   0.000  conecta/inst_LPM_MUX11 (conecta/_varindex0000<0>)
+     FD:D                      0.203          conecta/do1_0
+    ----------------------------------------
+    Total                      7.131ns (3.198ns logic, 3.933ns route)
+                                       (44.8% logic, 55.2% route)
+
+=========================================================================
+Timing constraint: Default OFFSET OUT AFTER for Clock 'clk'
+  Total number of paths / destination ports: 9 / 5
+-------------------------------------------------------------------------
+Offset:              9.243ns (Levels of Logic = 2)
+  Source:            estado_act_FSM_FFd1 (FF)
+  Destination:       dato_debug<3> (PAD)
+  Source Clock:      clk rising
+
+  Data Path: estado_act_FSM_FFd1 to dato_debug<3>
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     FDC:C->Q             15   0.720   1.527  estado_act_FSM_FFd1 (estado_act_FSM_FFd1)
+     LUT2:I0->O            1   0.551   0.801  dato_debug<3>1 (dato_debug_3_OBUF)
+     OBUF:I->O                 5.644          dato_debug_3_OBUF (dato_debug<3>)
+    ----------------------------------------
+    Total                      9.243ns (6.915ns logic, 2.328ns route)
+                                       (74.8% logic, 25.2% route)
+
+=========================================================================
+
+
+Total REAL time to Xst completion: 6.00 secs
+Total CPU time to Xst completion: 5.46 secs
+ 
+--> 
+
+Total memory usage is 225692 kilobytes
+
+Number of errors   :    0 (   0 filtered)
+Number of warnings :    0 (   0 filtered)
+Number of infos    :    1 (   0 filtered)
